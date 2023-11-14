@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Math Game</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="row">
+    <div class="compteur display">
+      <ion-item>
+        <ion-label><p>Temps restant:</p></ion-label>
+        <b>
+          <p class="time">{{ remainingTime }}</p>
+        </b>
+      </ion-item>
+    </div>
+    <div class="score display">
+      <ion-item>
+        <ion-label><p>Score: </p></ion-label>
+        <b>
+          <p id="score"></p>
+        </b>
+      </ion-item>
+    </div>
+  </div>
+
+  <div class="equation">
+    <p id="equation"></p>
+  </div>
+  <div class="form">
+    <form [formGroup]="inpForm" (ngSubmit)="onSubmit()" action="" id="form-user">
+      <input type="number" name="" formControlName="inpValue" id="form-input">
+      <button type="submit" hidden></button>
+    </form>
+  </div>
+
+</ion-content>
