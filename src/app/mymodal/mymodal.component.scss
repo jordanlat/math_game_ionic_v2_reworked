@@ -1,0 +1,15 @@
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form label, input {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+form input {
+    font-size: 2rem;
+    margin: 3rem 10rem;
+}
