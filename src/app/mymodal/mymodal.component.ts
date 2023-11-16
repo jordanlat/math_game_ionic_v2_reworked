@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IonicModule, ModalController } from '@ionic/angular';
 
 @Component({
@@ -11,10 +12,14 @@ import { IonicModule, ModalController } from '@ionic/angular';
 })
 export class MymodalComponent  implements OnInit {
   nameForm: FormGroup;
+  equation: string = '';
+  user_inp: number = 0;
+  right_answ: number = 0;
 
   constructor(
     private modalController: ModalController,
     private formBuilder: FormBuilder,
+    private router: Router,
   ) {
     this.nameForm = this.formBuilder.group(
       {
@@ -23,7 +28,9 @@ export class MymodalComponent  implements OnInit {
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(`${this.equation} ${this.user_inp}`)
+  }
 
   pseudo: string = '';
   modalIsOpen: boolean = false;
@@ -34,6 +41,7 @@ export class MymodalComponent  implements OnInit {
       const pseudo = data.value.pseudo;
       console.log(pseudo);
       this.modalController.dismiss({pseudo}, 'ok');
+      this.router.navigate(['/home']);
     }
   }
 

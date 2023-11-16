@@ -10,6 +10,8 @@ export class Globals {
   public static numberTwo: number = 0;
   public static result: number = 0;
   public static symbol: number = 0;
+  public static str_equation: string = '';
+  public static user_inp: number = 0;
 }
 
 @Component({
@@ -84,7 +86,8 @@ export class GamePage implements OnInit {
         Globals.result = Globals.numberOne + Globals.numberTwo;
         
         if (showEqua != undefined && showEqua != null){
-          showEqua.textContent = Globals.numberOne + ' + ' + Globals.numberTwo + ' = ?';
+          Globals.str_equation = Globals.numberOne + ' + ' + Globals.numberTwo + ' = ?';
+          showEqua.textContent = Globals.str_equation;
         }
         
         break;
@@ -93,7 +96,8 @@ export class GamePage implements OnInit {
         // Soustraction
         Globals.result = Globals.numberOne - Globals.numberTwo;
         if (showEqua != undefined && showEqua != null){
-          showEqua.textContent = Globals.numberOne + ' - ' + Globals.numberTwo + ' = ?';
+          Globals.str_equation = Globals.numberOne + ' - ' + Globals.numberTwo + ' = ?';
+          showEqua.textContent = Globals.str_equation;
         }
         break;
   
@@ -101,15 +105,19 @@ export class GamePage implements OnInit {
         // Multiplication
         Globals.result = Globals.numberOne * Globals.numberTwo;
         if (showEqua != undefined && showEqua != null){
-          showEqua.textContent = Globals.numberOne + ' * ' + Globals.numberTwo + ' = ?';
+          Globals.str_equation = Globals.numberOne + ' * ' + Globals.numberTwo + ' = ?';
+          showEqua.textContent = Globals.str_equation;
         }
         break;
   
       case 3:
         // Division
-        Globals.result = Globals.numberOne * Globals.numberTwo;
+        const temp_result = Globals.numberOne * Globals.numberTwo;
+        Globals.result = Globals.numberOne;
+        Globals.numberOne = temp_result;
         if (showEqua != undefined && showEqua != null){
-          showEqua.textContent = Globals.result + ' / ' + Globals.numberTwo + ' = ?';
+          Globals.str_equation = Globals.numberOne + ' / ' + Globals.numberTwo + ' = ?';
+          showEqua.textContent = Globals.str_equation;
         }
         break;
       
@@ -121,9 +129,10 @@ export class GamePage implements OnInit {
   }
 
   check_result(inpValue:number) {
+    Globals.user_inp = inpValue;
 
     if(Globals.symbol == 3) {
-      if(inpValue == Globals.numberOne) {
+      if(inpValue == Globals.result) {
         console.log("Cooreect");
         this.score++;
         this.stopCountdown();
@@ -186,12 +195,17 @@ export class GamePage implements OnInit {
       this.isModalOpen = true;
       const modal = await this.modalController.create({
         component: MymodalComponent,
+        componentProps: {
+          equation: Globals.str_equation,
+          user_inp: Globals.user_inp,
+          right_answ: Globals.result
+        }
       });
   
   
       await modal.present();
   
-      //await modal.onWillDismiss();
+      //await modal.
     } catch (error) {
       console.log(error);
     }
