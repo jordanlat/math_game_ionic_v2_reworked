@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, push, get, orderByValue, limitToFirst, query, orderByChild, orderByKey, limitToLast } from 'firebase/database';
+import { getDatabase, ref, push, get, query, orderByChild, limitToLast } from 'firebase/database';
 import { firebaseConfig } from 'src/environments/environment';
 
 @Injectable({
