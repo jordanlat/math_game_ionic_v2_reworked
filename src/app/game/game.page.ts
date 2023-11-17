@@ -198,7 +198,8 @@ export class GamePage implements OnInit {
         componentProps: {
           equation: Globals.str_equation,
           user_inp: Globals.user_inp,
-          right_answ: Globals.result
+          right_answ: Globals.result,
+          score : this.score
         }
       });
   
