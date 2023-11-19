@@ -18,16 +18,17 @@ export class DbManagerService {
     try {
       const thisref = ref(this.db, 'leaderboard');
 
-      const fireQuery = query(thisref, orderByChild('score'), limitToLast(4));
+      const fireQuery = query(thisref, orderByChild('score'), limitToLast(6));
       const query_get = get(fireQuery);
 
       await query_get.then((data) => {
         data.forEach((child) => {
+          console.log(child.val());
           this.arr_lead.push(child.val());
         });
       });
 
-      console.log(this.arr_lead.reverse());
+      return(this.arr_lead.reverse());
 
     } catch (error) {
       console.log("erreur get pseudo");

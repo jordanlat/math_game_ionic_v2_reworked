@@ -1,0 +1,10 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+}
+
+.list ion-col, ion-row {
+    border: solid white 1px;
+}

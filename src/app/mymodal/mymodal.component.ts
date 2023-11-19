@@ -34,13 +34,12 @@ export class MymodalComponent  implements OnInit {
   }
 
   ngOnInit() {
-    console.log(`${this.equation} ${this.user_inp}`)
+    console.log(`${this.equation} ${this.user_inp}`);
   }
 
 
   onSubmit() {
     const data = this.nameForm;
-    const db = DbManagerService;
     if (data.value.pseudo != undefined && data.value.pseudo != null && data.valid){
       const pseudo = data.value.pseudo;
       console.log(pseudo, this.score);

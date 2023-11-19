@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { LeaderboardComponent } from '../leaderboard/leaderboard.component'
 
 @Component({
   selector: 'app-home',
