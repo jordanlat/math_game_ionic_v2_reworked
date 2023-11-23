@@ -3,6 +3,12 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, push, get, query, orderByChild, limitToLast } from 'firebase/database';
 import { firebaseConfig } from 'src/environments/environment';
 
+
+export interface LeadData {
+  pseudo: string;
+  score: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,15 +26,15 @@ export class DbManagerService {
 
       const fireQuery = query(thisref, orderByChild('score'), limitToLast(6));
       const query_get = get(fireQuery);
+      this.arr_lead.length = 0;
 
       await query_get.then((data) => {
         data.forEach((child) => {
-          console.log(child.val());
           this.arr_lead.push(child.val());
         });
       });
 
-      return(this.arr_lead.reverse());
+      return (this.arr_lead.reverse());
 
     } catch (error) {
       console.log("erreur get pseudo");

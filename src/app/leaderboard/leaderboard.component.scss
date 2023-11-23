@@ -5,6 +5,11 @@
     text-align: center;
 }
 
-.list ion-col, ion-row {
+.list ion-col, ion-row, p {
+    padding: 5px;
     border: solid white 1px;
+}
+
+.header {
+    font-weight: bolder;
 }

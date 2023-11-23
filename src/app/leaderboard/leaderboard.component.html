@@ -1,21 +1,37 @@
+<!--
 <div class="list">
-  <p>Leaderboard</p>
   <ion-grid>
-    <ion-row>
+    <p>Leaderboard</p>
+    <ion-row class="header">
       <ion-col>
-        <p>Pseudo</p>
+        Pseudo
       </ion-col>
       <ion-col>
-        <p>Score</p>
+        Score
       </ion-col>
     </ion-row>
-    <div *ngFor="let item of arr_lead">
-      <ion-row>
+    <div id="leaderboard"></div>
+  </ion-grid>
+</div>
+-->
+<div class="list">
+  <ion-grid>
+    <p>Leaderboard</p>
+    <ion-row class="header">
+      <ion-col>
+        Pseudo
+      </ion-col>
+      <ion-col>
+        Score
+      </ion-col>
+    </ion-row>
+    <div id="leaderboard">
+      <ion-row *ngFor="let data of arr_lead" class="row">
         <ion-col>
-          {{item['pseudo']}}
+          <p>{{ data.pseudo }}</p>
         </ion-col>
         <ion-col>
-          {{item['score']}}
+          <p>{{ data.score }}</p>
         </ion-col>
       </ion-row>
     </div>

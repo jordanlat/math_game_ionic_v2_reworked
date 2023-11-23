@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } 
 import { Router } from '@angular/router';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { DbManagerService } from '../db-manager.service';
+import {LeaderboardComponent} from '../leaderboard/leaderboard.component';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-mymodal',
@@ -24,7 +26,8 @@ export class MymodalComponent  implements OnInit {
     private modalController: ModalController,
     private formBuilder: FormBuilder,
     private router: Router,
-    private fireService: DbManagerService
+    private fireService: DbManagerService,
+    private navControl: NavController
   ) {
     this.nameForm = this.formBuilder.group(
       {
@@ -33,25 +36,31 @@ export class MymodalComponent  implements OnInit {
     );
   }
 
-  ngOnInit() {
-    console.log(`${this.equation} ${this.user_inp}`);
-  }
-
+  ngOnInit() {}
 
   onSubmit() {
     const data = this.nameForm;
     if (data.value.pseudo != undefined && data.value.pseudo != null && data.valid){
       const pseudo = data.value.pseudo;
-      console.log(pseudo, this.score);
       
       this.fireService.setData(pseudo, this.score);
 
       this.modalController.dismiss({pseudo}, 'ok');
-      this.router.navigate(['/home']);
+      //this.router.navigate(['home']);
+      this.navControl.navigateBack(['home/']);
     }
   }
 
   onDismiss (data: string) {
+    console.log('On dismiss');
     this.modalController.dismiss(data);
+  }
+
+  onViewWillEnter () {
+    console.log('will enter modal will');
+  }
+
+  onViewDidEnter() {
+    console.log('will enter modal did');
   }
 }
