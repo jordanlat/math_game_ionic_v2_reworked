@@ -16,24 +16,26 @@
 -->
 <div class="list">
   <ion-grid>
-    <p>Leaderboard</p>
-    <ion-row class="header">
-      <ion-col>
-        Pseudo
-      </ion-col>
-      <ion-col>
-        Score
-      </ion-col>
-    </ion-row>
-    <div id="leaderboard">
-      <ion-row *ngFor="let data of arr_lead" class="row">
+    <h1>Leaderboard</h1>
+    <div class="content">
+      <ion-row class="header">
         <ion-col>
-          <p>{{ data.pseudo }}</p>
+          Pseudo
         </ion-col>
         <ion-col>
-          <p>{{ data.score }}</p>
+          Score
         </ion-col>
       </ion-row>
+      <div id="leaderboard">
+        <ion-row *ngFor="let data of arr_lead" class="row">
+          <ion-col>
+            <p>{{ data.pseudo }}</p>
+          </ion-col>
+          <ion-col>
+            <p>{{ data.score }}</p>
+          </ion-col>
+        </ion-row>
+      </div>
     </div>
   </ion-grid>
 </div>
