@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { MymodalComponent } from '../mymodal/mymodal.component';
 
@@ -34,7 +33,6 @@ export class GamePage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private modalController: ModalController,
-    private router: Router,
   ) {
 
     this.inpForm = this.formBuilder.group({
@@ -133,28 +131,22 @@ export class GamePage implements OnInit {
 
     if(Globals.symbol == 3) {
       if(inpValue == Globals.result) {
-        console.log("Cooreect");
         this.score++;
         this.stopCountdown();
         this.geneEqua();
         this.startCountdown();        
       } else {
-        console.log("FAUX");
-        console.log(Globals.numberOne + " " + Globals.symbol + " " + Globals.numberTwo + " " + Globals.result);
         this.pauseCountdown();
         this.stopCountdown();
         this.openModal();
       }
     } else {
       if (inpValue == Globals.result){
-        console.log("Cooreect");
         this.score++;
         this.stopCountdown();
         this.geneEqua();
         this.startCountdown();
       } else {
-        console.log("FAUX");
-        console.log(Globals.numberOne + " " + Globals.symbol + " " + Globals.numberTwo + " " + Globals.result);
         this.pauseCountdown();
         this.stopCountdown();
         this.openModal();

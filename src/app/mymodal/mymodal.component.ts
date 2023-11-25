@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } 
 import { Router } from '@angular/router';
 import { IonicModule, ModalController } from '@ionic/angular';
 import { DbManagerService } from '../db-manager.service';
-import {LeaderboardComponent} from '../leaderboard/leaderboard.component';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -37,6 +36,9 @@ export class MymodalComponent  implements OnInit {
   }
 
   ngOnInit() {}
+  ngOnDestroy(){
+    this.navControl.navigateBack(['home/']);
+  }
 
   onSubmit() {
     const data = this.nameForm;
@@ -46,21 +48,7 @@ export class MymodalComponent  implements OnInit {
       this.fireService.setData(pseudo, this.score);
 
       this.modalController.dismiss({pseudo}, 'ok');
-      //this.router.navigate(['home']);
       this.navControl.navigateBack(['home/']);
     }
-  }
-
-  onDismiss (data: string) {
-    console.log('On dismiss');
-    this.modalController.dismiss(data);
-  }
-
-  onViewWillEnter () {
-    console.log('will enter modal will');
-  }
-
-  onViewDidEnter() {
-    console.log('will enter modal did');
   }
 }
