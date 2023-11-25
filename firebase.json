@@ -3,7 +3,7 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "predeploy": "npm run build",
+    "predeploy": "npm i && ionic build",
     "site": "jojo-math-game",
     "public": "www",
     "ignore": [
