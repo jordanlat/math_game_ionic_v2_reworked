@@ -1,21 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Math Games
+      Math Game
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Math Game</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div id="container">
-    <p><strong>Résouds le plus d'équation sans erreur !</strong></p>
-    <ion-button [routerLink]="['/game']"><p>Commencer</p></ion-button>
+    <h4>10 sec to solve equation !</h4>
+    <h6>Resolve many as possible !</h6>
+    <button [routerLink]="['/game']"><p>START</p></button>
     <app-leaderboard></app-leaderboard>
   </div>
 </ion-content>

@@ -1,19 +1,19 @@
 <div class="text">
-  <p>L'équation était:</p>
+  <p>The Equation:</p>
   <br>
   <p><strong>{{equation}}</strong></p>
   <br>
-  <p>Vous avec répondu:</p>
+  <p>Your answer:</p>
   <br>
   <p><strong>{{user_inp}}</strong></p>
   <br>
-  <p><strong></strong>La bonne réponse est:</p>
+  <p><strong></strong>The Right answser:</p>
   <br>
   <p><strong>{{right_answ}}</strong></p>
 </div>
 
 <form [formGroup]='nameForm' (ngSubmit)="onSubmit()" id="form" class="container">
-  <label for=""><Strong>Entrer un Pseudo</Strong></label>
-  <input type='text' formControlName="pseudo">
+  <label for=""><Strong>Enter  Nickname</Strong></label>
+  <input type='text' formControlName="pseudo" autofocus>
   <input type="submit" value="enter" hidden>
 </form>

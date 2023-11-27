@@ -1,21 +1,72 @@
 #container {
-  text-align: center;
-  margin: 10vh auto;
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  justify-content: space-between;
+  max-width: fit-content;
+  margin: 0px auto;
 }
 
-#container strong {
-  font-size: 25px;
-}
-
-#container p {
-  font-size: 16px;
+h4,h6 {
+  text-align: center;
   font-weight: bolder;
 }
 
-#container ion-button {
-  margin: 10vh auto;
+p {
+  text-align: center;
+  font-size: 2rex;
+  font-weight: bolder;
+  margin: 5px auto;
+}
+
+button {
+  background-color: #3a7be0;
+  color: black;
+  font-weight: bolder;
+  border-radius: 5px;
   max-width: fit-content;
+  padding: 5px 10px;
+  margin: auto;
+}
+button:hover {
+  background-color: rgb(8, 63, 121);
+  transform: translateY(-2px);
+}
+button:active {
+  background-color: rgb(8, 63, 121);
+  box-shadow: 0 5px rgb(8, 63, 121);
+  transform: translateY(4px);
+}
+
+@media only screen and (min-width: 854px) {
+
+  #container {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    margin: 10vh auto;
+  }
+  
+  #container strong {
+    font-size: 2rem;
+  
+  }
+  
+  button {
+    background-color: #3a7be0;
+    color: black;
+    font-weight: bolder;
+    border-radius: 5px;
+    max-width: fit-content;
+    padding: 5px 10px;
+    margin: auto;
+  }
+  button:hover {
+    background-color: rgb(8, 63, 121);
+    transform: translateY(-2px);
+  }
+  button:active {
+    background-color: rgb(8, 63, 121);
+    box-shadow: 0 5px rgb(8, 63, 121);
+    transform: translateY(4px);
+  }
 }
